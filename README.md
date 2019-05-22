@@ -1,6 +1,3 @@
-# README
-
-
 ## How to Create Project, Run and Migration
 
 * Create New Project
@@ -77,4 +74,30 @@ end
 * just remove or change `get 'pages/home', to: 'pages#home'` to `root 'pages#home'`
 * Run command `rails server` and then try to open url: http://localhost:3000/
 
+
 ## How to Create Article Controller and CRUD
+
+* Open /config/routes.rb write this:
+`resources :articles`
+
+* Then we run this to check existing routes for articles
+> rails routes
+
+* Or if using windows to filter :
+> rails routes | FIND /I "article"
+
+* then this output should be
+```
+---------------------------------------------------------------------------
+Prefix 			   Verb     URI Pattern                      #Action
+---------------------------------------------------------------------------
+articles 		   GET      /articles(.:format)              articles#index
+				       POST     /articles(.:format)              articles#create
+new_article 	 GET      /articles/new(.:format)          articles#new
+edit_article 	 GET      /articles/:id/edit(.:format)	 	 articles#edit
+article 		   GET      /articles/:id(.:format)          articles#show
+				       PATCH    /articles/:id(.:format)          articles#update
+				       PUT      /articles/:id(.:format)          articles#update
+				       DELETE   /articles/:id(.:format)          articles#destroy
+---------------------------------------------------------------------------
+```
